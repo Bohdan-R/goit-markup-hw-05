@@ -1,8 +1,3 @@
-/*Цвет заголовков #212121*/
-/*Цвет текста #757575*/
-/*Цвет при наведении #2196F3*/
-/*Фон кнопок #F5F4FA*/
-
 :root {
     --primary-text-color: #757575;
     --title-text-color: #212121;
@@ -105,9 +100,12 @@ h6 {
 }
 
 .site-nav .link {
+    position: relative;
+
     display: block;
     padding-top: 32px;
     padding-bottom: 32px;
+    width: 100%;
 
     color: var(--title-text-color);
     font-weight: 500;
@@ -115,11 +113,26 @@ h6 {
     line-height: 1.14;
     letter-spacing: 0.02em;
     text-decoration: none;
+
+    transition: color 250ms var(--transition-function);
 }
 
 .site-nav .link:hover,
 .site-nav .link:focus {
     color: var(--accent-color);
+}
+
+.link.current::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background-color: var(--accent-color);
+    border-radius: 2px;
 }
 
 .link.current {
@@ -145,6 +158,8 @@ h6 {
     line-height: 1.14;
     letter-spacing: 0.02em;
     text-decoration: none;
+
+    transition: color 250ms var(--transition-function);
 }
 
 .contact-link:first-child {
@@ -159,6 +174,8 @@ h6 {
 .contact-icon {
     fill: var(--primary-text-color);
     margin-right: 10px;
+
+    transition: fill 250ms var(--transition-function);
 }
 
 .contact-link:hover .contact-icon,
@@ -306,13 +323,33 @@ h6 {
     margin-right: 0;
 }
 
+.activity-link {
+    position: relative;
+
+    display: block;
+}
+
+.wrapper-activity {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    background-color: rgba(47, 48, 58, 0.8);
+}
+
 .activity-text {
-    background-color: #999999;
+    margin: 0;
+    padding-top: 27px;
+    padding-bottom: 27px;
+
     color: #FFFFFF;
     font-weight: 700;
     font-size: 14px;
     line-height: 1.14;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .activity-link {
@@ -401,6 +438,8 @@ h6 {
     height: 100%;
 
     border-radius: 50%;
+
+    transition: background-color 250ms var(--transition-function);
 }
 
 .team-icon {
@@ -408,6 +447,8 @@ h6 {
     height: 20px;
 
     fill: var(--social-icon-color);
+
+    transition: fill 250ms var(--transition-function);
 }
 
 .team-link:hover,
@@ -434,6 +475,8 @@ h6 {
 
     border: 1px solid #AFB1B8;
     border-radius: 4px;
+
+    transition: border-color 250ms var(--transition-function);
 }
 
 .client-item:last-child {
@@ -455,6 +498,8 @@ h6 {
 
 .client-icon {
     fill: var(--social-icon-color);
+
+    transition: fill 250ms var(--transition-function);
 }
 
 .client-item:hover .client-icon,
@@ -518,6 +563,7 @@ footer {
 .logo.footer {
     color: #FFFFFF;
 }
+
 .social {
     display: block;
     margin-bottom: 20px;
@@ -551,6 +597,8 @@ footer {
 
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
+
+    transition: background-color 250ms var(--transition-function);
 }
 
 .social-link:hover,
@@ -598,6 +646,8 @@ footer {
 .button-list .button {
     padding-left: 22px;
     padding-right: 22px;
+    padding-top: 6px;
+    padding-bottom: 6px;
 
     background-color: var(--primary-background-color-button);
     border: 0px;
@@ -609,13 +659,14 @@ footer {
     line-height: 1.62;
     letter-spacing: 0.03em;
     text-align: center;
+
+    transition: 250ms var(--transition-function);
 }
 
 .button-list .button:hover,
 .button-list .button:focus {
     background-color: var(--accent-color);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
-    border-radius: 4px;
 
     color: var(--accent-color-button);
 }
@@ -635,6 +686,7 @@ footer {
     margin-bottom: 30px;
 
     background-color: var(--background-color-card);
+    transition: box-shadow 250ms var(--transition-function);
 }
 
 .job-card:nth-child(3n) {
@@ -649,9 +701,52 @@ footer {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.job-link>img {
+.job-link {
+    display: block;
+
+    color: var(--primary-text-color);
+    text-decoration: none;
+}
+
+.card-img {
+    position: relative;
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.card-img>img {
     display: block;
     width: 100%;
+}
+
+.wrraper-float {
+    position: absolute;
+    bottom: -1;
+
+    width: 100%;
+    height: 100%;
+    padding-top: 63px;
+    padding-bottom: 63px;
+    padding-left: 23px;
+    padding-right: 23px;
+
+    background-color: rgba(33, 150, 243, 0.9);
+
+    transition: transform 250ms var(--transition-function);
+}
+
+.job-card:hover .wrraper-float {
+    transform: translateY(-100%);
+}
+
+.float-text {
+    margin: 0;
+
+    font-size: 18px;
+    line-height: 1.56;
+
+    color: #FFFFFF;
 }
 
 .card-content {
@@ -666,6 +761,8 @@ footer {
 }
 
 .job-title {
+    margin-bottom: 4px;
+
     font-size: 18px;
     line-height: 2;
     letter-spacing: 0.06em;
@@ -701,7 +798,7 @@ footer {
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
-    
+
 }
 
 .modal {
@@ -712,7 +809,7 @@ footer {
 
     width: 528px;
     height: 581px;
-    
+
     background-color: #FFFFFF;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;

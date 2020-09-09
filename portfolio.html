@@ -213,7 +213,7 @@
       </div>
 
       <!--Секция Соц. сетей-->
-      <div>
+      <div class="social-footer">
         <b class="social">присоединяйтесь</b>
         <ul class="social-list list">
           <li class="social-item">
@@ -248,7 +248,19 @@
       </div>
 
       <!--Секция подписки на рассылку-->
-      <div></div>
+      <div>
+        <form class="subscription-form">
+          <label for="subscription" class="subscription-label">Подпишитесь на рассылку</label>
+          <div class="subscription-box">
+            <input type="email" id="subscription" name="email-subscription" class="subscription-input" placeholder="E-mail">
+            <button type="submit" class="subscription-button">Подписаться
+              <svg class="subscription-icon" width="24" height="24">
+                <use href="./images/svg-sprite/symbol-defs.svg#icon-send"></use>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </footer>
 </body>
